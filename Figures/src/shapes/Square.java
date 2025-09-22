@@ -1,31 +1,36 @@
 package shapes;
-import java.out.color
+
 public class Square {
-	private double sideLength ;
-	
-	public Square() {
-		this.sideLength = 1.0;
-	}
-	
-	public Square(double sideLength) {
-		if (sideLength <= 0.0) {
-			
-		}
-		this.sideLength = sideLength;
-		
-	}
+    private double sideLength;
 
-	public double getSideLength() {
-		return sideLength;
-	}
+    // Default constructor
+    public Square() {
+        this(1.0); // calls the other constructor
+    }
 
-	public void setSideLength(double sideLength) {
-		this.sideLength = sideLength;
-	}
+    // Constructor with parameter
+    public Square(double sideLength) {
+        if (sideLength < 0.0) {
+            throw new IllegalArgumentException("sideLength must be >= 0");
+        }
+        this.sideLength = sideLength;
+    }
 
-	public double getArea() {
-		return sideLength * sideLength ;
-	}
+    // Getter
+    public double getSideLength() {
+        return sideLength;
+    }
 
+    // Setter (optional, lets you change the side later)
+    public void setSideLength(double sideLength) {
+        if (sideLength < 0.0) {
+            throw new IllegalArgumentException("sideLength must be >= 0");
+        }
+        this.sideLength = sideLength;
+    }
 
+    // Area method
+    public double getArea() {
+        return sideLength * sideLength;
+    }
 }
